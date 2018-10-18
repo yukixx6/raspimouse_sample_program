@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#import sys,math
 import sys, rospy
 
 def lsf_listener():
@@ -62,10 +61,12 @@ def reset():
 if __name__ == "__main__":
  rospy.init_node("left_hand_method")
  rate = rospy.Rate(1)
- while not rospy.is_shutdown():
-  if not rospy.is_shutdown():
-   lsf_listener()
-   rate.sleep()
-  if not rospy.is_shutdown():
-   reset()
-   rate.sleep()
+ try:
+  while not rospy.is_shutdown():
+   if not rospy.is_shutdown():
+    lsf_listener()
+    rate.sleep()
+    reset()
+    rate.sleep()
+ except:
+  pass
